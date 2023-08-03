@@ -12,7 +12,7 @@ export class CarouselHostComponent implements OnInit {
     type: 'module',
     remoteEntry: 'http://localhost:4202/remoteEntry.js',
     exposedModule: './web-components',
-    elementName: 'mfe1'
+    elementName: 'mfe1-component'
 
     // type: 'script',
     // remoteEntry: 'http://localhost:4201/remoteEntry.js',

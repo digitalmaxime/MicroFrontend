@@ -21,29 +21,31 @@ import { CarouselModule } from './carousel/carousel.module';
 
 @NgModule({
   declarations: [
+    AppComponent
   ],
 
   imports: [
     BrowserModule,
     CommonModule,
     // RouterModule.forRoot(routes),
-    CarouselModule
+    CarouselModule,
+    
   ],
 
   providers: [],
 
   exports: [],
 
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule implements DoBootstrap {
 
   constructor(private injector: Injector) {
-    
+
   }
 
   ngDoBootstrap(appRef: ApplicationRef): void {
-      const ce = createCustomElement(CarouselComponent, {injector: this.injector});
-      customElements.define('mfe1', ce);
+    const ce = createCustomElement(CarouselComponent, { injector: this.injector });
+    customElements.define('mfe1-component', ce);
   }
 }
