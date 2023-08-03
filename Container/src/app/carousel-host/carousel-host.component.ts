@@ -1,5 +1,4 @@
 import { Component, ComponentFactoryResolver, ComponentRef, OnInit, ViewContainerRef } from '@angular/core';
-import { loadRemoteModule } from '@angular-architects/module-federation';
 import { WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
 
 @Component({
@@ -14,19 +13,7 @@ export class CarouselHostComponent implements OnInit {
     exposedModule: './web-components',
     elementName: 'mfe1-component'
 
-    // type: 'script',
-    // remoteEntry: 'http://localhost:4201/remoteEntry.js',
-    // remoteName: 'mfe2',
-    // exposedModule: './CarouselComponent',
-    // elementName: 'AppModule',
-
-    // type: 'module',
-    // remoteEntry: 'http://localhost:4201/remoteEntry.js',
-    // // remoteName: 'mfe2',
-    // exposedModule: './CarouselComponent',
-    // elementName: 'app-carousel'
-
-
+    /** PRE EXISTING REMOTE MFEs */
     // remoteEntry: 'https://witty-wave-0a695f710.azurestaticapps.net/remoteEntry.js',
     // remoteName: 'react',
     // exposedModule: './web-components',
@@ -38,32 +25,9 @@ export class CarouselHostComponent implements OnInit {
     //     elementName: 'angular1-element'
   }
 
-// constructor(
-//   private cfr: ComponentFactoryResolver,
-//   private vcref: ViewContainerRef
-// ) {}
-
 
 ngOnInit(): void {
   
 }
-
-  // async ngOnInit(): Promise<void> {
-  //   const { CarouselComponent } = await loadRemoteModule({
-  //     remoteEntry: 'http://localhost:4201/remoteEntry.js',
-  //     remoteName: 'mfe2',
-  //     exposedModule: './CarouselComponent',
-  //   });
-
-  //   console.log(CarouselComponent)
-
-  //   this.vcref.createComponent(
-  //     this.cfr.resolveComponentFactory(CarouselComponent)
-  //   );
-
-    // const componentRef: ComponentRef<{
-
-    // }>
-  // }
 
 }

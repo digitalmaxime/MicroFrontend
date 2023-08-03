@@ -4,20 +4,7 @@ import { createCustomElement } from '@angular/elements';
 import { AppComponent } from './app.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
 import { CarouselModule } from './carousel/carousel.module';
-
-// export const routes: Routes = [
-//   {
-//     path: "**",
-//     children: [
-//       { 
-//         path: '**', component: AppComponent
-//       }
-//     ]
-//   }
-// ]
-
 
 @NgModule({
   declarations: [
@@ -27,7 +14,6 @@ import { CarouselModule } from './carousel/carousel.module';
   imports: [
     BrowserModule,
     CommonModule,
-    // RouterModule.forRoot(routes),
     CarouselModule,
     
   ],

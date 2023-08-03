@@ -27,14 +27,6 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
         library: { type: "module" },
-
-        // For remotes (please adjust)
-        // name: "container",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './/src/app/app.component.ts',
-        // },        
-        
         // For hosts (please adjust)
         // remotes: {
         //     "mfe2": "http://localhost:4201/remoteEntry.js",
