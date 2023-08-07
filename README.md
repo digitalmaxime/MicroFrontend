@@ -77,7 +77,7 @@ Container/src/app/carousel-host/carousel-host.component.ts
 
   \* Note that package versions must match. Make sure to use the same CLI version in both _Shell_ and _Remote_. 
 
-<h4>Check ANgular CLI version</h4>
+<h4>Check Angular CLI version</h4>
 
 ```
 ng version 
@@ -104,9 +104,12 @@ yarn add @angular-architects/module-federation-tools
 <h5>import ModuleFederationToolsModule in app.module.ts</h5>
 
 ```
+// src/app/app.module.ts
+
 ...
 import { ModuleFederationToolsModule } from '@angular-architects/module-federation-tools';
 ...
+
 @NgModule({
   imports: [
     ...
@@ -117,9 +120,11 @@ import { ModuleFederationToolsModule } from '@angular-architects/module-federati
 export class AppModule { }
 ```
 
-<h5>add the module-federation-tools import in the app-component.ts file</h5>
+<h5>add the module-federation-tools import in the app.component.ts file</h5>
 
 ```
+// src/app/app.component.ts
+
 import { WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
 ```
 
@@ -127,12 +132,16 @@ import { WebComponentWrapperOptions } from '@angular-architects/module-federatio
 <h5>add the Standalone component selector in the html</h5>
 
 ```
+// src/app/app.component.html
+
 <mft-wc-wrapper [options]="item"></mft-wc-wrapper>
 ```
 
-<h5>declare the mfe's options prop in the app-component.ts file (using a pre-existing exposed mfe)</h5>
+<h5>declare the mfe's options prop in the app.component.ts file (using a pre-existing exposed mfe)</h5>
 
 ```
+// src/app/app.component.ts
+
 item: WebComponentWrapperOptions = {
     remoteEntry: 'https://witty-wave-0a695f710.azurestaticapps.net/remoteEntry.js',
     remoteName: 'react',
@@ -145,6 +154,8 @@ item: WebComponentWrapperOptions = {
 <h5>modify the bootstrap.ts file according to the Module-Federation's recommendation</h5>
 
 ```
+// src/bootstrap.ts
+
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { bootstrap } from '@angular-architects/module-federation-tools';
@@ -155,11 +166,145 @@ bootstrap(AppModule, {
 });
 ```
 
+<h5>serve the application</h5>
+
+```
+ng serve
+```
+
 ---
 <h2>Exposing Micro Frontend as Web Component in Angular
  - Steps (Remote)</h2>
 
 
+<h5>Create an Angular Project (no Routing required **)</h5>
+
+```
+ng new
+ng generate module mySpecialModule
+ng generate component
+```
+
+<h5>Ajust de app.module.ts file</h5>
+
+- <h5>import the exposed component's module</h5>
+
+  ```
+  // src/app/app.module.ts
+
+  ...
+  @NgModule({
+    declarations: [
+      AppComponent
+    ],
+
+    imports: [
+      BrowserModule,
+      CommonModule,
+      MySpecialModule, // <<-- 
+    ],
+    ...
+  ```
+
+
+- <h5>import '@angular/elements'</h5>
+
+  ```
+  yarn add '@angular/elements
+  ```
+
+- <h5>Do a special bootstrapping of app.module.ts</h5>
+
+  ```
+  // src/app/app.module.ts
+
+  import { createCustomElement } from '@angular/elements';
+  ...
+  export class AppModule implements DoBootstrap {
+
+    constructor(private injector: Injector) {
+
+    }
+
+    ngDoBootstrap(appRef: ApplicationRef): void {
+      const ce = createCustomElement(CarouselComponent, { injector: this.injector });
+      customElements.define('mfe1-component', ce);
+    }
+  }
+  ```
+
+- <h5>Ajust de app.module.ts file</h5>
+
+  ```
+  // src/app/app.module.ts
+  ...
+
+  bootstrap: [] // <<-- remove the 'Bootstrap' array
+  ...
+  ```
+
+
+<h5>import @angular-architects/module-federation</h5>
+
+```
+ng add @angular-architects/module-federation
+
+```
+
+<h5>import @angular-architects/module-federation-tools</h5>
+
+```
+yarn add @angular-architects/module-federation-tools
+
+```
+
+ 
+<h5>modified the Bootstrap.ts file with use of the `@angular-architects/module-federation-tools`</h5>
+
+```
+import { AppModule } from './app/app.module';
+
+import { bootstrap } from '@angular-architects/module-federation-tools';
+
+bootstrap(AppModule, {
+  production: false,
+  appType: 'microfrontend'
+})
+```
+
+<h5>ajust the `webpack.config.ts` file</h5>
+
+```
+// webpack.config.ts
+
+...
+plugins: [
+    new ModuleFederationPlugin({
+      library: { type: "module" },
+
+      // For remotes (please adjust)
+      name: "mfe1",
+      filename: "remoteEntry.js",
+      exposes: {
+        './web-components': './src/bootstrap.ts',
+      },
+      ...
+
+```
+
+<h5>serve the application</h5>
+
+```
+ng serve
+```
+
+checkout `//http://localhost:4201/remoteEntry.js` and make sure there is some content
+
  ---
+
+
+ <h2>Linking the Shell and Mfe configurations</h5>
+
+ - the .. should be equivalent to ..
 
  ref: https://dev.to/blminami/micro-frontends-nx-angular-module-federation-angular-mfe-vuejs-mfe-13hi
