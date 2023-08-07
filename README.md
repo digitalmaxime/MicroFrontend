@@ -82,7 +82,7 @@ Container/src/app/carousel-host/carousel-host.component.ts
 ng version 
 ```
 
-<h4>Create an Angular Project</h4>
+<h4>Create an Angular Project (with Routing **)</h4>
 
 ```
 ng new 
