@@ -88,7 +88,7 @@ ng add @angular-architects/module-federation
 <h5>import @angular-architects/module-federation-tools</h5>
 
 ```
-ng add @angular-architects/module-federation-tools
+yarn add @angular-architects/module-federation-tools
 ```
 
 <h5>import ModuleFederationToolsModule in app.module.ts</h5>
@@ -108,13 +108,18 @@ export class AppModule { }
 ```
 
 <h5>add the module-federation-tools import in the app-component.ts file</h5>
+
 ```
-...
-import { ModuleFederationToolsModule } from '@angular-architects/module-federation-tools';
-...
+import { WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
 ```
 
-in the app-component.ts file
+
+<h5>add the Standalone component selector in the html</h5>
+
+```
+<mft-wc-wrapper [options]="item"></mft-wc-wrapper>
+```
+
 <h5>declare the mfe's options prop in the app-component.ts file</h5>
 
 ```
