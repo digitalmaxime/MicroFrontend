@@ -146,6 +146,11 @@ bootstrap(AppModule, {
 });
 ```
 
+---
+<h2>Exposing Micro Frontend as Web Component in Angular
+ - Steps (Remote)</h2>
+
+
  ---
 
  ref: https://dev.to/blminami/micro-frontends-nx-angular-module-federation-angular-mfe-vuejs-mfe-13hi
