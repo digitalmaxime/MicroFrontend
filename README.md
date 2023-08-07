@@ -71,7 +71,8 @@ Container/src/app/carousel-host/carousel-host.component.ts
 
  ---
 
-<h2>Steps (Host)</h2>
+<h2>Providing a Web Component with Module Federation
+- Steps (Host)</h2>
 
 <h4>Create an Angular Project</h4>
 
