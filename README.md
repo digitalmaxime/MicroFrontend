@@ -69,6 +69,49 @@ Container/src/app/carousel-host/carousel-host.component.ts
     [...]
  ```
 
- 
+ ---
+
+<h2>Steps (Host)</h2>
+
+<h4>Create an Angular Project</h4>
+
+```
+ng new 
+```
+
+<h5>import @angular-architects/module-federation</h5>
+
+```
+yarn add @angular-architects/module-federation
+```
+
+<h5>import @angular-architects/module-federation-tools</h5>
+
+```
+yarn add @angular-architects/module-federation-tools
+```
+
+<h5>add the module-federation `selector` to host mfe</h5>
+
+```
+<mft-wc-wrapper [options]="item"></mft-wc-wrapper>
+```
+
+<h5>declare the mfe's options prop</h5>
+
+```
+item: WebComponentWrapperOptions = {
+    remoteEntry: 'https://witty-wave-0a695f710.azurestaticapps.net/remoteEntry.js',
+    remoteName: 'react',
+    exposedModule: './web-components',
+    elementName: 'react-element'
+}
+    
+```
+
+
+
+
+ ---
 
  ref: https://dev.to/blminami/micro-frontends-nx-angular-module-federation-angular-mfe-vuejs-mfe-13hi
