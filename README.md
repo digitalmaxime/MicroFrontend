@@ -74,6 +74,14 @@ Container/src/app/carousel-host/carousel-host.component.ts
 <h2>Providing a Web Component with Module Federation
 - Steps (Host)</h2>
 
+  \* Note that package versions must match. Make sure to use the same CLI version in both _Shell_ and _Remote_. 
+
+<h4>Check ANgular CLI version</h4>
+
+```
+ng version 
+```
+
 <h4>Create an Angular Project</h4>
 
 ```
