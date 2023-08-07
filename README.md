@@ -121,7 +121,7 @@ import { WebComponentWrapperOptions } from '@angular-architects/module-federatio
 <mft-wc-wrapper [options]="item"></mft-wc-wrapper>
 ```
 
-<h5>declare the mfe's options prop in the app-component.ts file</h5>
+<h5>declare the mfe's options prop in the app-component.ts file (using a pre-existing exposed mfe)</h5>
 
 ```
 item: WebComponentWrapperOptions = {
