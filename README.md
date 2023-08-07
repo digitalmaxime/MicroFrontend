@@ -32,6 +32,7 @@ Where the _Shell_ contains independent _Remote_ UI component
 
 - A module scoped component that needs to be exposed
 - An app.module.ts that
+  - import { createCustomElement } from '@angular/elements'; // from -->  yarn add @angular/elements
   - import the exposed component's module
   - A does a special Boostrap 
     -  `export class AppModule implements DoBootstrap { ..`
