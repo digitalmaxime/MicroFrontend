@@ -85,7 +85,7 @@ ng version
 <h4>Create an Angular Project (with Routing **)</h4>
 
 ```
-ng new 
+ng new // make sure to add Routing
 ```
 
 <h5>import @angular-architects/module-federation</h5>
