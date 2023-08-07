@@ -16,7 +16,7 @@ Where the _Shell_ contains independent _Remote_ UI component
  `ng add @angular-architects/module-federation`
  in both project
 
- `ng add @angular-architects/module-federation-tools`
+ `yarn add @angular-architects/module-federation-tools`
  in both project
 
 
