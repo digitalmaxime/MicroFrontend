@@ -82,13 +82,13 @@ ng new
 <h5>import @angular-architects/module-federation</h5>
 
 ```
-yarn add @angular-architects/module-federation
+ng add @angular-architects/module-federation
 ```
 
 <h5>import @angular-architects/module-federation-tools</h5>
 
 ```
-yarn add @angular-architects/module-federation-tools
+ng add @angular-architects/module-federation-tools
 ```
 
 <h5>add the module-federation `selector` to host mfe</h5>
