@@ -91,6 +91,19 @@ ng add @angular-architects/module-federation
 ng add @angular-architects/module-federation-tools
 ```
 
+<h5>import ModuleFederationToolsModule in app.module.ts</h5>
+
+```
+@NgModule({
+  imports: [
+    ...
+    ModuleFederationToolsModule
+  ],
+  [...]
+})
+export class AppModule { }
+```
+
 <h5>add the module-federation `selector` to host mfe</h5>
 
 ```
