@@ -94,23 +94,28 @@ ng add @angular-architects/module-federation-tools
 <h5>import ModuleFederationToolsModule in app.module.ts</h5>
 
 ```
+...
+import { ModuleFederationToolsModule } from '@angular-architects/module-federation-tools';
+...
 @NgModule({
   imports: [
     ...
     ModuleFederationToolsModule
   ],
-  [...]
+  ...
 })
 export class AppModule { }
 ```
 
-<h5>add the module-federation `selector` to host mfe</h5>
-
+<h5>add the module-federation-tools import in the app-component.ts file</h5>
 ```
-<mft-wc-wrapper [options]="item"></mft-wc-wrapper>
+...
+import { ModuleFederationToolsModule } from '@angular-architects/module-federation-tools';
+...
 ```
 
-<h5>declare the mfe's options prop</h5>
+in the app-component.ts file
+<h5>declare the mfe's options prop in the app-component.ts file</h5>
 
 ```
 item: WebComponentWrapperOptions = {
@@ -122,8 +127,18 @@ item: WebComponentWrapperOptions = {
     
 ```
 
+<h5>modify the bootstrap.ts file according to the Module-Federation's recommendation</h5>
 
+```
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+import { bootstrap } from '@angular-architects/module-federation-tools';
 
+bootstrap(AppModule, {
+  production: environment.production,
+  appType: 'shell'
+});
+```
 
  ---
 
