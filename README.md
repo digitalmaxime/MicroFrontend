@@ -185,7 +185,7 @@ ng generate module mySpecialModule
 ng generate component
 ```
 
-<h5>Ajust de app.module.ts file</h5>
+<h5>Ajust the app.module.ts file</h5>
 
 - <h5>import the exposed component's module</h5>
 
@@ -233,7 +233,7 @@ ng generate component
   }
   ```
 
-- <h5>Ajust de app.module.ts file</h5>
+- <h5>Ajust the app.module.ts file</h5>
 
   ```
   // src/app/app.module.ts
