@@ -182,7 +182,7 @@ ng serve
 ```
 ng new
 ng generate module mySpecialModule
-ng generate component
+ng generate component mySpecialModule/mySpecialItem
 ```
 
 <h5>Ajust the app.module.ts file</h5>
