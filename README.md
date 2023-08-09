@@ -182,8 +182,8 @@ ng serve
 ```
 ng new Mfe
 cd Mfe/src/app
-ng generate module mySpecialModule
-ng generate component my-special-module/mySpecialItem
+ng generate module mySpecialMfe
+ng generate component my-special-mfe/mySpecialItem
 ```
 
 <h5>Ajust the app.module.ts file</h5>
@@ -211,7 +211,7 @@ ng generate component my-special-module/mySpecialItem
 - <h5>import '@angular/elements'</h5>
 
   ```
-  yarn add '@angular/elements
+  yarn add @angular/elements
   ```
 
 - <h5>Do a special bootstrapping of app.module.ts</h5>
@@ -228,7 +228,7 @@ ng generate component my-special-module/mySpecialItem
     }
 
     ngDoBootstrap(appRef: ApplicationRef): void {
-      const ce = createCustomElement(CarouselComponent, { injector: this.injector });
+      const ce = createCustomElement(MySpecialItemComponent, { injector: this.injector });
       customElements.define('mfe1-component', ce);
     }
   }
@@ -252,26 +252,6 @@ ng add @angular-architects/module-federation
 
 ```
 
-<h5>import @angular-architects/module-federation-tools</h5>
-
-```
-yarn add @angular-architects/module-federation-tools
-
-```
-
- 
-<h5>modified the Bootstrap.ts file with use of the `@angular-architects/module-federation-tools`</h5>
-
-```
-import { AppModule } from './app/app.module';
-
-import { bootstrap } from '@angular-architects/module-federation-tools';
-
-bootstrap(AppModule, {
-  production: false,
-  appType: 'microfrontend'
-})
-```
 
 <h5>ajust the `webpack.config.ts` file</h5>
 
@@ -291,6 +271,28 @@ plugins: [
       },
       ...
 
+```
+
+
+<h5>import @angular-architects/module-federation-tools</h5>
+
+```
+yarn add @angular-architects/module-federation-tools
+
+```
+
+ 
+<h5>modified the Bootstrap.ts file with use of the `@angular-architects/module-federation-tools`</h5>
+
+```
+import { AppModule } from './app/app.module';
+
+import { bootstrap } from '@angular-architects/module-federation-tools';
+
+bootstrap(AppModule, {
+  production: false,
+  appType: 'microfrontend'
+})
 ```
 
 <h5>serve the application</h5>
