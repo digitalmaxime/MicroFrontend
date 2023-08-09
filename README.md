@@ -180,7 +180,8 @@ ng serve
 <h5>Create an Angular Project (no Routing required **)</h5>
 
 ```
-ng new
+ng new Mfe
+cd Mfe/src/app
 ng generate module mySpecialModule
 ng generate component my-special-module/mySpecialItem
 ```
